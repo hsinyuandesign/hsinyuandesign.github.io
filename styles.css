@@ -1,0 +1,380 @@
+:root {
+  --bg: #fefcf9;
+  --card-bg: #f9f9f9;
+  --text-dark: #2A3132;
+  --text-secondary: #5F6566;
+  --main-color: #ff5700;
+  --accent-color: #001666;
+  --content-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans";
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6,
+.greeting {
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.project-title {
+  font-family: "DM Sans";
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  font-size: 0.95rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--main-color);
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.hero-section {
+  padding: 100px 0 60px;
+}
+
+.hero-content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.greeting {
+  font-size: 3rem;
+  flex: 1;
+  
+  color: var(--main-color);
+}
+
+.intro-text {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-dark);
+  max-width: 550px;
+  text-align: right;
+
+}
+
+.work-section {
+  padding: 40px 0 100px;
+}
+
+.projects-grid {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  padding-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+.project-title {
+  color: var(--main-color);
+  font-size: 1.3rem;
+  margin: 15px 20px 8px;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0 20px 15px;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 20px;
+}
+
+.project-tag {
+  background-color:  var(--main-color);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 15px;
+}
+/* --- ABOUT SECTION STYLES --- */
+
+.about-section {
+    padding: 80px 20px;
+}
+
+.about-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    /* Use CSS Grid for the two main columns */
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* Text column wider than image column */
+    gap: 80px; /* Space between the two main columns */
+}
+
+/* Style for the Text Column */
+.about-text-column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Spacing between the headings/paragraphs (about-item) */
+    padding-right: 20px; /* Clean internal padding */
+}
+
+.about-item h2 {
+    font-family: "Libre Baskerville", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+/* --- ANIMATION KEYFRAMES (Ensure this is present) --- */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- IMAGE COLUMN (FLEXBOX STACKING & WIDTHS) --- */
+
+.about-image-grid {
+    display: flex; 
+    gap: 25px; 
+    max-width: 500px;
+    margin-top: 20px; 
+    align-items: flex-start;
+}
+
+/* This column is wider (HP and Photobooth) */
+.image-stack-left {
+    display: flex;
+    flex-direction: column; 
+    flex: 1.1; 
+    gap: 15px; 
+}
+
+/* This column is narrower (Sunset and Minion) */
+.image-stack-right {
+    display: flex;
+    flex-direction: column; 
+    flex: 0.9; 
+    gap: 15px; 
+}
+
+/* --- IMAGE STYLES WITH FADE-UP --- */
+
+.about-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    object-fit: cover;
+    
+    /* 🔑 CRITICAL: Start hidden and apply animation */
+    opacity: 0; 
+    animation: fadeUp 0.8s ease-out forwards; 
+}
+
+/* Staggered Fade-Up Animation Delays */
+
+/* Image 1 (HP - Top Left) */
+.about-image-grid .image-stack-left img:nth-child(1) {
+    animation-delay: 0.1s; 
+}
+
+/* Image 2 (Sunset - Top Right) */
+.about-image-grid .image-stack-right img:nth-child(1) {
+    animation-delay: 0.3s; 
+}
+
+/* Image 3 (Photobooth - Bottom Left) */
+.about-image-grid .image-stack-left img:nth-child(2) {
+    animation-delay: 0.5s; 
+}
+
+/* Image 4 (Minion - Bottom Right) */
+.about-image-grid .image-stack-right img:nth-child(2) {
+    animation-delay: 0.7s; 
+}
+.emphasis {
+  font-weight:700; font-style:italic;
+}
+.about-item p {
+  font-family: "DM Sans";
+  
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  width: 100%;
+}
+
+.playground-carousel-section {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.playground-heading {
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+  font-size: 3rem;
+  color: var(--accent-color);
+}
+
+.playground-subtext {
+  color: var(--text-secondary);
+  margin-top: 8px;
+  margin-bottom: 50px;
+  font-size: 1rem;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  
+  display: flex;
+  animation: scroll var(--scroll-speed, 38s) linear infinite;
+}
+.carousel-container:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+.carousel-img {
+  height: 260px;
+  border-radius: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-right: 48px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-img:hover {
+  transform: scale(1.04);
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content-img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 12px;
+  opacity: 0;
+  transform: scale(0.88);
+  animation: zoomIn 0.28s ease forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.greeting {
+  animation: fadeUp 1s ease-out forwards; 
+}
+.intro-text {
+  opacity: 0; 
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 0.5s; 
+}
