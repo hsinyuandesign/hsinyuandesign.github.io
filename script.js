@@ -1,3 +1,7 @@
+if (window.location.pathname.endsWith('.html')) {
+  window.location.href = window.location.pathname.replace('.html', '');
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const cursor = document.querySelector(".custom-cursor");
@@ -203,3 +207,4 @@ stickers.forEach(sticker => {
   });
 
 });
+
