@@ -13,7 +13,6 @@ body {
   font-family: "PP Neue Montreal", Arial, sans-serif;
   color: var(--text);
   line-height: 1.6;
-  cursor: none;
   font-weight: 300;
 }
 
@@ -58,6 +57,30 @@ body, a, button, .navbar,
 .navbar *  {
   cursor: none !important; 
 }
+
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, .sticker, .navbar * {
+    cursor: none !important;
+  }
+
+  .custom-cursor {
+    display: block;
+    position: fixed;
+    z-index: 99999; 
+    pointer-events: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+    visibility: hidden;
+  }
+
+  * {
+    cursor: auto !important;
+  }
+}
 #work {
   scroll-margin-top: 100px; 
 }
@@ -72,6 +95,7 @@ body, a, button, .navbar,
   z-index: 9999;
   left: -100px;
   top: -100px;
+  
 }
 .custom-cursor.cursor-hover {
   background-color: var(--accent-blue);
@@ -314,6 +338,8 @@ a:visited {
 .hero-section {
   display: flex; 
   align-items: center; 
+  justify-content: space-between;
+  width: 100%;
 }
 
 .projects-grid {
@@ -323,55 +349,27 @@ a:visited {
   gap: 30px;
 }
 @media (max-width: 900px) {
-  .crate-container {
-    display: none !important;
-  }
-
   .hero-section {
-    display: block; 
-    padding-top: 40px;
-    padding-bottom: 20px;
+    flex-direction: column; 
+    text-align: center;     
   }
 
-  .hero-section > div {
+  .intro-text {
+    margin: 0 auto;     
+    text-align: center;
+  }
+
+  .crate-container {
+    height: auto;          
     width: 100%;
-    max-width: 100%;
-  }
-
-  .greeting {
-    font-size: 2.2rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-
-  #work {
-    margin-top: 40px;
-  }
-}
-@media (max-width: 900px) {
-  .about-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .about-image-grid {
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: flex;
     justify-content: center;
-    gap: 15px;
   }
-
-  .image-stack-left,
-  .image-stack-right {
-    flex: 1 1 45%; 
-  }
-
-  .image-stack-left img,
-  .image-stack-right img {
-    flex: 1 1 100%; 
+  
+  .record-box {
+    margin-left: 0; 
   }
 }
-
 
 .tags {
   background-color: var(--accent-blue);
@@ -385,23 +383,6 @@ a:visited {
   display: inline-block;
 }
 
-.sticker-layer{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-}
-.sticker {
-  position: absolute;
-  width: 130px;
-  pointer-events: auto;
-  cursor: none;
-  user-select: none;
-  
-  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
-}
 .about-container {
   max-width: var(--content-width);
   display: grid;
@@ -413,17 +394,15 @@ a:visited {
 .about-text-column {
   display: flex;
   flex-direction: column;
-  gap: 40px; 
   padding-right: 20px; 
 }
 
-
 .about-image-grid {
-  display: flex; 
+  display: grid; 
   gap: 25px; 
+  grid-template-columns: 1fr 1fr;
   max-width: 500px;
   align-items: flex-start;
-  flex-wrap: wrap;
 }
 
 .about-section h1 {
@@ -438,17 +417,31 @@ a:visited {
 }
 
 .about-img {
-  
   width: 100%;
   max-width: 100%;
   height: auto;
   display: block;
   border-radius: 10px;
   object-fit: cover;
-  
   opacity: 0; 
   animation: fadeUp 0.8s ease-out forwards; 
 }
+
+
+@media (max-width: 1000px) {
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-image-grid {
+    max-width: 500px;
+    margin: 0 auto; 
+  }
+
+}
+
 
 .about-image-grid .image-stack-left img:nth-child(1) {
     animation-delay: 0.1s; 
@@ -486,7 +479,6 @@ a:visited {
   animation: fadeUp 1s ease-out forwards;
   animation-delay: 0.5s; 
   max-width: 550px;
-  text-align: left;
 }
 
 section {
@@ -499,7 +491,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 650px; 
+  height: 550px; 
 }
 .record-box {
   position: relative;
@@ -666,10 +658,42 @@ section {
   .project-grid-container { grid-template-columns: 1fr; }
 }
 
+.playground-hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 75px;
+}
+
+.hero-sticker {
+  width: 350px;
+  max-width: 80%;
+  height: auto;
+}
+
+.sticker {
+  position: absolute;
+  width: 130px;
+  pointer-events: auto;
+  cursor: none;
+  touch-action: none;
+  -webkit-user-drag: none;
+  z-index: 10;
+  user-select: none;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+
+.playground-item {
+  position: relative;
+  margin-bottom: 24px;
+  display: block;
+  break-inside: avoid;
+}
 .playground-grid {
   column-count: 5;
   column-gap: 24px;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .playground-img {
@@ -677,9 +701,29 @@ section {
   height: auto;
   border-radius: 14px;
   margin-bottom: 24px;
-  break-inside: avoid;
   display: block;
 }
+
+
+.top-right {
+  top: -15px;
+  right: -135px;
+}
+
+.top-left {
+  top: -40px;
+  left: -50px;
+}
+
+.bottom-right {
+  bottom: -45px;
+  right: -45px;
+}
+.bottom-left{
+  top: 150px;
+  left:10px;
+}
+
 @media (max-width: 1200px) {
   .playground-grid { column-count: 4; }
 }
@@ -691,10 +735,6 @@ section {
 @media (max-width: 600px) {
   .playground-grid { column-count: 2; }
 }
-.playground-page {
-  padding-top: 50px;
-}
-
 
 .vinyl-container{
   position:relative;

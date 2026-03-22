@@ -171,40 +171,98 @@ window.addEventListener("scroll", () => {
 const stickers = document.querySelectorAll(".sticker");
 const cursor = document.querySelector(".custom-cursor");
 
-stickers.forEach(sticker => {
+let activeSticker = null;
+let mouseOffsetX = 0;
+let mouseOffsetY = 0;
+let startX = 0;
+let startY = 0;
 
-  const randomRotation = (Math.random() * 15)* (Math.random() < 0.5 ? -1 : 1);
-  sticker.style.transform = `rotate(${randomRotation}deg)`;
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
 
-  let dragging = false;
-  let offsetX = 0;
-  let offsetY = 0;
+const getCoords = (e) => {
+  return e.touches ? e.touches[0] : e;
+};
 
-  sticker.addEventListener("dragstart", (e) => {
-    e.preventDefault();
-  });
+const dragStart = (e, sticker) => {
+  if (e.type === "mousedown" && e.button !== 0) return;
+  
+  activeSticker = sticker;
+  const coords = getCoords(e);
+  const rect = sticker.getBoundingClientRect();
 
-  sticker.addEventListener("mousedown", (e) => {
-  e.preventDefault();
-  dragging = true;
+  mouseOffsetX = coords.clientX - rect.left;
+  mouseOffsetY = coords.clientY - rect.top;
+  startX = coords.clientX;
+  startY = coords.clientY;
 
-  offsetX = e.clientX - sticker.offsetLeft;
-  offsetY = e.clientY - sticker.offsetTop;
+  sticker.style.position = "fixed";
+  sticker.style.left = rect.left + "px";
+  sticker.style.top = rect.top + "px";
+  sticker.style.zIndex = "5000";
 
   cursor.classList.add("cursor-hover");
+  if (e.cancelable) e.preventDefault();
+};
+
+const dragMove = (e) => {
+  if (!activeSticker) return;
+  const coords = getCoords(e);
+
+  let newTop = coords.clientY - mouseOffsetY;
+  let newLeft = coords.clientX - mouseOffsetX;
+
+  if (newTop < 120) newTop = 120;
+
+  activeSticker.style.top = newTop + "px";
+  activeSticker.style.left = newLeft + "px";
+  
+  if (e.cancelable) e.preventDefault();
+};
+
+const dragEnd = (e) => {
+  if (!activeSticker) return;
+
+  const coords = e.changedTouches ? e.changedTouches[0] : e;
+
+  const finalLeft = coords.clientX - mouseOffsetX + window.scrollX;
+  const finalTop = coords.clientY - mouseOffsetY + window.scrollY;
+
+  activeSticker.style.position = "absolute";
+  document.body.appendChild(activeSticker); 
+  
+  activeSticker.style.left = finalLeft + "px";
+  activeSticker.style.top = Math.max(finalTop, 120 + window.scrollY) + "px";
+  activeSticker.style.margin = "0";
+  activeSticker.style.zIndex = "100";
+
+  const moveDist = Math.sqrt(Math.pow(coords.clientX - startX, 2) + Math.pow(coords.clientY - startY, 2));
+  if (moveDist < 5) {
+    activeSticker.style.pointerEvents = "none";
+    const elementBelow = document.elementFromPoint(coords.clientX, coords.clientY);
+    if (elementBelow) {
+      const clickable = elementBelow.closest('a') || elementBelow.closest('.playground-img');
+      if (clickable) clickable.click();
+    }
+    activeSticker.style.pointerEvents = "auto";
+  }
+
+  activeSticker = null;
+  cursor.classList.remove("cursor-hover");
+};
+
+stickers.forEach(sticker => {
+  const randomRotation = (Math.random() * 15) * (Math.random() < 0.5 ? -1 : 1);
+  sticker.style.transform = `rotate(${randomRotation}deg)`;
+
+  sticker.addEventListener("mousedown", (e) => dragStart(e, sticker));
+  sticker.addEventListener("touchstart", (e) => dragStart(e, sticker), { passive: false });
 });
 
-  document.addEventListener("mousemove", (e) => {
-    if (!dragging) return;
+document.addEventListener("mousemove", dragMove);
+document.addEventListener("touchmove", dragMove, { passive: false });
 
-    sticker.style.left = (e.clientX - offsetX) + "px";
-    sticker.style.top = (e.clientY - offsetY) + "px";
-  });
-
-  document.addEventListener("mouseup", () => {
-    dragging = false;
-    cursor.classList.remove("cursor-hover");
-  });
-
-});
-
+document.addEventListener("mouseup", dragEnd);
+document.addEventListener("touchend", dragEnd);
