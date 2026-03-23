@@ -706,18 +706,18 @@ section {
 
 
 .top-right {
-  top: -15px;
-  right: -135px;
+  top: 10px;
+  right: 10px;
 }
 
 .top-left {
-  top: -40px;
-  left: -50px;
+  top: 15px;
+  left: 15px;
 }
 
 .bottom-right {
-  bottom: -45px;
-  right: -45px;
+  bottom: 10px;
+  right: 5px;
 }
 .bottom-left{
   top: 150px;
