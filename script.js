@@ -1,6 +1,6 @@
-// if (window.location.pathname.endsWith('.html')) {
-//   window.location.href = window.location.pathname.replace('.html', '');
-// }
+if (window.location.pathname.endsWith('.html')) {
+  window.location.href = window.location.pathname.replace('.html', '');
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -266,22 +266,3 @@ document.addEventListener("touchmove", dragMove, { passive: false });
 
 document.addEventListener("mouseup", dragEnd);
 document.addEventListener("touchend", dragEnd);
-
-function resizeGridItems() {
-  const grid = document.querySelector('.playground-grid');
-  const rowHeight = 10;
-  const rowGap = 16;
-
-  grid.querySelectorAll('.playground-item').forEach(item => {
-    const img = item.querySelector('.playground-img');
-    if (!img) return;
-
-    const height = img.getBoundingClientRect().height;
-    const span = Math.ceil((height + rowGap) / (rowHeight + rowGap));
-
-    item.style.gridRowEnd = `span ${span}`;
-  });
-}
-
-window.addEventListener('load', resizeGridItems);
-window.addEventListener('resize', resizeGridItems);
