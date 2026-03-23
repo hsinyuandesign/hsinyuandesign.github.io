@@ -1,6 +1,6 @@
-// if (window.location.pathname.endsWith('.html')) {
-//   window.location.href = window.location.pathname.replace('.html', '');
-// }
+if (window.location.pathname.endsWith('.html')) {
+  window.location.href = window.location.pathname.replace('.html', '');
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
