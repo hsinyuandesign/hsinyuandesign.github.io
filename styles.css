@@ -729,21 +729,6 @@ section {
   display: block;
 }
 
-
-.top-right {
-  top: 10px;
-  right: 10px;
-}
-
-.top-left {
-  top: 15px;
-  left: 15px;
-}
-
-.bottom-right {
-  bottom: 10px;
-  right: 5px;
-}
 .bottom-left{
   top: 150px;
   left:10px;
