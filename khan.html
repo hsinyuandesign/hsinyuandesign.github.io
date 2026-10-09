@@ -11,239 +11,260 @@
 <body>
 <div class="custom-cursor"></div>
 
- <header class="navbar">
+<header class="navbar">
   <div class="nav-container">
     <a href="index.html" class="logo">
       <img src="images/logo_white.png"/>
     </a>
-    
     <nav class="nav-links">
       <a href="/#work">Work</a>
       <a href="about.html">About</a>
       <a href="playground.html">Playground</a>
       <a href="https://drive.google.com/file/d/1t1C0RsQ1QKuubL-XZBui4DP-oAMyCK_6/view?usp=sharing" target="_blank">Resume ↗</a>
-</nav>
-  </header>
+    </nav>
+  </div>
+</header>
+
 <div class="whole">
-  
-  <aside class="sidebar">
+  <section class="hero-block">
+    <div class=case-content>
+      <h1>Making every $1 feel like <br>a life-changing opportunity.</h1>
+    <p>Khan Academy relies on donations to keep free, world-class education accessible to millions. As part of Design for 
+      America’s IDEA program, I redesigned its web donation flow to replace a cold, transactional checkout with a transparent 
+       experience.
+
+</p>
+    </div>
+    
+    <div class="case-image">
+      <img src="khan/thumbnail.gif">
+    </div>
+    <div class="case-meta">
+      <div class="meta-block"><div class="tags">ROLE</div><br>UX Designer <br> UX Researcher</div>
+      <div class="meta-block"><div class="tags">TEAM</div><br>3 Designers</div>
+      <div class="meta-block"><div class="tags">TOOLS</div><br>Figma</div>
+      <div class="meta-block"><div class="tags">TIMELINE</div><br>8 Weeks</div>
+    </div>
+  </section>
+
+  <div class="layout-wrapper">
+<aside class="sidebar" id="sidebar">
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">
+    <span class="toggle-icon"></span>
+  </button>
 
   <div class="record-player">
-
     <div class="vinyl-container">
       <img src="records/khan/khan_vinyl.png" class="vinyl" alt="vinyl record">
       <img src="records/needle.png" class="needle-img" alt="needle">
     </div>
-
     <div class="now-playing">
       <br>
       <p class="np-label">Now Playing</p>
       <p id="nowPlayingTrack">Overview</p>
     </div>
+  </div>
+  
+  <div class="sidebar-menu">
     <h4>Track List</h4>
+    <nav class="sticky-nav">
+      <ul>
+        <li><a href="#overview" class="nav-link">01 Overview</a></li>
+        <li><a href="#problem" class="nav-link">02 Problem</a></li>
+        <li><a href="#research" class="nav-link">03 Research</a></li>
+        <li><a href="#process" class="nav-link">04 Process</a></li>
+        <li><a href="#solution" class="nav-link">05 Solution</a></li>
+        <li><a href="#reflection" class="nav-link">06 Reflection</a></li>
+      </ul>
+    </nav>
+  </div>
+</aside>
+    <div class="content-area">
+
+      <section id="overview">
+        <div class="header-with-line"><p><strong>01 Overview</strong></p></div>
+        <div class="case-content">
+          <h2>Khan Academy runs almost entirely on donations and volunteers. That makes the donation flow one of the most 
+            important screens on the entire site.</h2>
+          <p>However, it wasn't pulling its weight. Why does the current donation flow feel like an afterthought instead of a place people want to give to?</p>
+          <p>
+            Our team redesigned everything in the donation flow from the first step of choosing the donation amount to visualizing real outcomes and 
+            leading with gratitude, rebuilding trust one step at a time.
+          </p>
+          <p>
+            This redesign focuses on first-time and hesitant donors — the group most likely to abandon the flow before giving at all.
+          </p>
+        </div>
+      </section>
+
+      <section id="problem">
+        <div class="header-with-line"><p><strong>02 Problem</strong></p></div>
+        <div class="case-content">
+          <p>When we first encountered Khan Academy’s donation flow, two assumptions kept coming up: </p>
+          <img src="khan/khan2.png">
+          <p>The existing flow didn't answer either question — it just asked for a card number. The transactional 
+            donor experience was losing Khan Academy out on many small but still impactful one-time donations.</p>
+          <h2>At its core, donors hesitate because they don't trust or know where the money goes.</h2>
+          <p>This distrust is further amplified by the current donation flow. </p>
+          <img src="khan/khan1.png">
+          <p>By treating donations as a transactional rather than a moment of connection, the design created friction and doubt. </p>
+          <h2>so...</h2>
+          <div class="case-emphasis" style="background-color: #C14E0F;">
+            <h2>How might we reassure one-time or recurring donors that their contributions make a difference?</h2>
+          </div>
+        </div>
+      </section>
+
+      <section id="research">
+        <div class="header-with-line"><p><strong>03 Research</strong></p></div>
+        <div class="case-content">
+          <h2>Trust isn't a feeling — it's designed.</h2>
+          <p>Through secondary research, we dug into what actually drives someone to open their 
+            wallet for a cause. Four factors kept surfacing:</p>
+    
+          <img src="khan/khan4.png">
+          <p>These four pillars guided our next steps as we explored ways to design a more
+            engaging and transparent donation experience for Khan Academy.</p>
+        </div>
+      </section>
+
+      <section id="process">
+        <div class="header-with-line"><p><strong>04 Process</strong></p></div>
+        <div class="case-content">          
+          <p>We explored different ideation directions, iterating on structure and flow. 
+            Any idea that didn't map to the previous four pillars were cut, converging on our final iterations .</p>
+          <div class="case-container">
+              <div class="case-col-text">
+                <h2>Here are some of the iterations I went through designing the amount and frequency step — 
+                  the first real decision a donor makes on the page.</h2>
+                <p>Ultimately, we chose to prioritize the smallest possible ask with the clearest possible 
+                  impact — a one-time default donations paired with amounts tied to real outcomes, even knowing Khan 
+                  Academy loses some of the predictability recurring gifts provide.</p>
+              </div>
+              <div class="case-col-image">
+                <img src="khan/iteration1.png">
+                <div class="case-caption"><STRONG>V1:</STRONG>Recurring kept as default, with "cancel anytime,
+                   no commitment" reassurance copy added. 
+                   <br>Softens the ask, but doesn't remove the barrier.</div>
+                <img src="khan/iteration2.png">
+                <div class="case-caption"><STRONG>V2:</STRONG>Blank "Enter amount" field, one-time donations pre-selected
+                   as default. 
+                   <br>Flexible + lower barrier, but forces donors to decide with no clear outcome shown.</div>
+                <img src="khan/iteration3.png">
+                <div class="case-caption"><strong>V3:</strong>One-time selected as default, preset tap-to-select amounts,
+                   each paired with an outcome. 
+                  <br>Removes the ask before it's made, and removes the guesswork — amount and outcome visible together.</div>
+              </div>
+              
+            </div>
+          
+        </div>
+      </section>
+
+      <section id="solution">
+        <div class="header-with-line"><p><strong>05 Solution</strong></p></div>
+        <div class="case-content">
+            <div class="case-container">
+              <div class="case-col-text">
+                <h2>Default to one-time, not recurring</h2>
+                <p>Recurring was the default. That's a big ask before someone's even given once. <br><br>
+                  We flipped it — one-time first, with donation amounts tied to real impact, so 
+                  donors could see exactly what their gift meant and did.</p>
+              </div>
+              <div class="case-col-image">
+                <img src="khan/before1.png">
+                <div class="case-caption"><strong>Before:</strong>Recurring by default</div>
+                <img src="khan/after1.gif">
+                <div class="case-caption"><strong>After:</strong>One-time by default, tied to impact</div>
+              </div>
+            </div>
+
+            <div class="case-container">
+              <div class="case-col-image">
+                <img src="khan/before2.png">
+                <div class="case-caption"><strong>Before:</strong>Thank you diluted by the immediate receipt</div>
+                <img src="khan/thumbnail.gif">
+                <div class="case-caption"><strong>After:</strong>Thank you gets its own moment</div>
+              </div>
+              <div class="case-col-text">
+                <h2>Leading with gratitude, not a receipt</h2>
+                <p>Donors used to land on a cold confirmation number the second they gave: now, we gave gratitude 
+                  its own moment. <br><br>The confetti animation further makes the impact feel real and enhances the 
+                  donor’s feeling of accomplishment. The receipt is still there, just no longer sharing the 
+                  spotlight.</p>
+              </div>
+            </div>
+
+            <div class="case-container">
+              <div class="case-col-text">
+                <h2>The Learners Fund, reimagined</h2>
+                <p>The Learner's Fund is Khan Academy's annual donor community — originally linked on the donation page, 
+                  competing with a donor's first decision.                   
+                  <br><br>We moved it after the thank you and added suggested amounts, so nothing competes with that first ask. 
+                  This means donors who already want to give annually take one extra step to find it — a tradeoff we made for 
+                  donors who arrive still deciding.</p>
+              </div>
+              <div class="case-col-image">
+                <img src="khan/before3.png">
+                <div class="case-caption"><strong>Before:</strong>Learner's Fund competes with the default donation</div>
+                <img src="khan/after3.gif">
+                <div class="case-caption"><strong>After:</strong>Learner's Fund offered after the thank you, one ask at a time</div>
+              </div>
+            </div>
+
+  
+        </div>
+        
+      </section>
+
+      <section id="reflection">
+        <div class="header-with-line"><p><strong>06 Reflection</strong></p></div>
+        <div class="case-content">
+          <h2>🪙 Generosity is a UX problem before it’s a money problem.</h2>
+          <p>
+            In this redesign, we didn’t focus on reducing the default donation amount, as we knew money was likely not 
+            the problem. The real drop-off wasn't friction — it was doubt. Donors weren't unsure how to give, they were
+            unsure their $10 mattered.
+            <br><br>
+            I learned that order changes meaning. Moving the thank you before the receipt didn't add a feature, it 
+            changed how giving felt — from a transaction to a moment of gratitude.
+            <br><br>
+            If you’ve designed for nonprofits before, I’d love to chat! <br><br>Thank you for reading :)
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="case-content">
+          <a href="bridged.html" class="next-project">
+            <div class="next-project-thumb">
+              <img src="bridged/gif1.gif">
+            </div>
+            <div class="next-project-info">
+              <div class="next-project-label">Next Project</div>
+              <h1>bridged — Designing for Cross-Generational Understanding ↗</h1>
+            </div>
+          </a>
+
+
+        </div>
+      </section>
+
+    </div>
   </div>
 
-  <nav class="sticky-nav">
-    <ul>
-      <li><a href="#overview" class="nav-link">01 Overview</a></li>
-      <li><a href="#problem" class="nav-link">02 Context/Problem</a></li>
-      <li><a href="#research" class="nav-link">03 Research</a></li>
-      <li><a href="#process" class="nav-link">04 Process</a></li>
-      <li><a href="#solution" class="nav-link">05 Solution</a></li>
-      <li><a href="#conclusion" class="nav-link">06 Conclusion</a></li>
-    </ul>
-  </nav>
-
-  </aside>
-  <div class="content-area">
-    <section>
-      <div class="title">Khan Academy Donation Flow Redesign</div>
-    <div class="case-meta">
-      <div class="meta-block"><div class="tags">ROLE</div><br>UX Designer <BR> UX Researcher</div>
-      <div class="meta-block"><div class="tags">TEAM</div><br>3 Designers</div>
-      <div class="meta-block"><div class="tags">TOOLS</div><br>Figma</div>
-    </div>
-    <div class="case-image">
-      <img src="thumbnails/khan.png" >
-    </div>
-    
-    </section>
-  
-  <section id="overview">
-  
-  <div class="header-with-line">
-    <p><strong>01 Overview</strong></p>
-  </div>
-    <div class="case-content">
-  <h1> A redesigned donation flow for Khan Academy that allows donors to see 
-    exactly how their donation makes a tangible impact. </h1>
-    
-    <p>As part of Design For America’s IDEA program, we were tasked with redesigning 
-        Khan Academy’s donation flow. The organization is powered mainly by donations 
-        and volunteers, underscoring the importance of donor flows to Khan Academy’s mission.
-         <br><br>
-          This project investigates what <strong> motivates</strong> and<strong> incentivizes</strong> donors to support free education.
-      
-  </p></div>
-  </section>
-
-  <section id="problem">
-    <div class="header-with-line">
-      <p><strong>02 Context/Problem </strong></p>
-    </div>
-    <div class="case-content">
-    <h1>Many potential donors hesitate because they are uncertain about where their contributions 
-      go or they assume that Khan Academy already has enough funding from big sponsors. </h1>
-    
-    <p>The existing experience felt too transactional and failed to evoke feelings of empathy or warmth. 
-      Without clear donor reassurance, the organization misses out on the small or one-time contributions
-       essential for maintaining high-quality learning. 
-    </p>
-        <img src="khan/khan1.png">
-
-      <div class="case-emphasis" style="background-color: #C14E0F;">
-      <h1>
-        How might we reassure one-time or recurring donors <br>that their contributions make a difference?
-      </h1>
-      </div>
-    </div>
-  </section>
-
-  
-  <section id="research">
-    <div class="header-with-line">
-      <p><strong>03 Research</strong></p>
-    </div>
-    <div class="case-content">
-    <h1>Through secondary research, we wanted to find out:</h1>
-    <ul>
-      <li>What motivates and incentivizes donors to support free education?</li>
-      <li>What non-financial barriers prevent users from donating?</li>
-      <li>How much trust do donors have in nonprofits and how does that influence their donations?</li>
-    </ul>
-    <h1>We identified four factors that most heavily impacted whether people donate.</h1>
-    <img src="khan/khan4.png" >
-    <h1>
-
-These insights will guide our next steps as we explore ways to design a more 
-engaging and transparent donation experience for Khan Academy.</h1>
-
-</p>
-    </div>
-  </section>
-
-  <section id="process" >
-    <div class="header-with-line">
-      <p><strong>04 Process</strong></p>
-    </div>
-    <div class="case-content">
-      
-    <h1>Low-fidelity designs and early ideation sketches were used to quickly explore different 
-      directions, allowing us to iterate on structure, flow, and interaction concepts before 
-      refining the final experience.</h1>
-      
-    <img src="khan/khan2.png" >
-    <img src="khan/khan3.png">
-    <div class="case-container">
-      <div class="case-col">
-        <h1>Lowering the barrier to entry</h1>
-        <p>Instead of prompting users toward long-term commitments, 
-          we defaulted to a one-time donation rather than recurring contributions.</p>
-      
-      <p>This reduces pressure for first-time donors who may feel intimidated by ongoing
-         commitments. By offering clear, flexible options, the experience feels more 
-         approachable and encourages initial participation.</p>
-      </div>
-      <div class="case-col"><img src="khan/khan7.png"></div>
-    </div>
-    <div class="case-container">
-      <div class="case-col"><img src="khan/khan6.png"></div>
-
-      <div class="case-col">
-        <h1>Meaningful Acknowledgement</h1>
-        <p>We redesigned the donation flow to include immediate, 
-          emotionally engaging feedback after a contribution is made.</p>
-          <p>Instead of showing a receipt first, users are greeted with a 
-            thank-you page upon completion, reinforcing appreciation and emotional 
-            connection. The receipt is still accessible, but placed after scrolling,
-             allowing the initial experience to feel more human rather than transactional.</p>
-      </div>
-    </div>
-    <div class="case-container">
-      <div class="case-col">
-        <h1>Transparent Impact Page</h1>
-        <p>We introduced a dedicated transparency page that clearly shows where donations 
-          go and the impact they create or have created in the past. This allows both 
-          prospective and current donors to see where their contributions are used towards.</p>
-          <p>By making impact visible and specific, the experience becomes more human and 
-            emotionally meaningful, rather than feeling like a transactional exchange. 
-            This builds trust and encourages continued support.</p>
-      </div>
-      <div class="case-col"><img src="khan/khan5.png"></div>
-    </div>
-    
-    </div>
-
-  </section>
-
-  <section id="solution">
-    <div class="header-with-line">
-      <p><strong>05 Solution</strong></p>
-    </div>
-    <div class="case-content">
-      <img src="khan/khan8.png">
-    </div>
-    
-  </section>
-
-  <section id="conclusion">
-    <div class="header-with-line">
-      <p><strong>06 Conclusion</strong></p>
-    </div>
-     <div class="case-content">
-      <p>Our redesign increased donor reassurance and reduced 
-        hesitation by replacing a transactional feel with one that builds trust and empathy.</p>
-<h1>Reflection</h1>
-<ul>
-<li>This was my first UX project and my first time working in a team-based design 
-  environment. Our team faced challenges such as shifting team members and uneven 
-  workload distribution, which required us to adapt quickly while staying on track for our deadline.
-</li>
-<li>This project highlighted the importance of clear communication, setting internal deadlines, 
-  and definitely improved my problem solving skills both in design and in working in a group.
-</li>
-   <li>Miscommunication and differences in skill levels limited our ability to fully 
-    execute some of our more ambitious ideas, resulting in a less complex redesign than initially envisioned.
-</li>
-<li>Moving forward, I would explore incorporating features like community recognition 
-  to further enhance user engagement and motivation.</li>
-</ul>
-    
-    </div>   
-  </section>
-  <section>
-    <div class="header-with-line">
-    </div>
-     <div class="case-content">
-      
-      <h1><div class="case-emphasis" style="background-color: #C14E0F;">Thanks for reading!</div></h1>
-    </div>   
-  </section>
-
-  </div>
-  
 </div>
 
 <script src="script.js"></script>
 
-</body>
 <footer class="site-footer">
   <div class="logo">
-     <img src="images/logo.png" >
+    <img src="images/logo.png">
   </div>
   <p class="footer-text">Perpetual work in progress. Please let me know if you catch a bug!
     <br>
     Reach out to me at hsl033 [at] ucsd [dot] edu or <a href="https://www.linkedin.com/in/hsinyuanl/" target="_blank">LinkedIn</a>!
   </p>
 </footer>
+</body>
 </html>
