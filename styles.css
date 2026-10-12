@@ -135,19 +135,111 @@ body, a, button, .navbar, .navbar * {
   text-align: center;
 }
 
-.hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
 .intro-text {
   opacity: 0;
   animation: fadeUp 1s ease-out forwards;
   animation-delay: 0.5s;
   max-width: 550px;
 }
+
+.record-box {
+  position: relative;
+  width: 380px;
+  height: 340px;
+  margin-left: 2px;
+}
+
+.crate-img {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;              
+  padding: 0 40px;       
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.crate-container {
+  flex: 0 0 380px;
+  height: 540px;          
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    gap: 40px;           
+    text-align: center;
+    padding: 0 20px;
+  }
+  .crate-container {
+    flex: 0 0 auto;      
+    height: auto;
+    width: 100%;
+    padding-top: 200px;   
+  }
+}
+
+@media (max-width: 900px) {
+  .intro-text {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .record-box {
+    margin-left: 0;
+  }
+  .playground-grid { column-count: 3; }
+}
+
+.front-wall { z-index: 10; }
+
+.record-card {
+  position: absolute;
+  width: 290px;
+  height: 290px;
+  bottom: 100px;
+  left: 45px;
+  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1), filter 0.4s;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.record-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.75);
+  transition: filter 0.4s;
+}
+
+.card-back  { transform: translateY(-70px); z-index: 1; }
+.card-mid   { transform: translateY(-35px); z-index: 2; }
+.card-front { transform: translateY(0px);   z-index: 3; }
+
+.record-card:hover {
+  transform: translateY(-150px) !important;
+}
+
+.record-card:hover img {
+  filter: brightness(1);
+}
+
 
 .header-with-line {
   display: flex;
@@ -597,64 +689,6 @@ body, a, button, .navbar, .navbar * {
   animation-delay: 0.7s;
 }
 
-.crate-container {
-  padding-top: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: 560px;
-}
-
-.record-box {
-  position: relative;
-  width: 380px;
-  height: 340px;
-  margin-left: 2px;
-}
-
-.crate-img {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
-}
-
-.front-wall { z-index: 10; }
-
-.record-card {
-  position: absolute;
-  width: 290px;
-  height: 290px;
-  bottom: 100px;
-  left: 45px;
-  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1), filter 0.4s;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.record-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.75);
-  transition: filter 0.4s;
-}
-
-.card-back  { transform: translateY(-70px); z-index: 1; }
-.card-mid   { transform: translateY(-35px); z-index: 2; }
-.card-front { transform: translateY(0px);   z-index: 3; }
-
-.record-card:hover {
-  transform: translateY(-150px) !important;
-}
-
-.record-card:hover img {
-  filter: brightness(1);
-}
-
 .playground-hero {
   width: 500px;
   margin: auto;  
@@ -897,19 +931,24 @@ body, a, button, .navbar, .navbar * {
   }
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1000px) {
   .case-container {
     flex-direction: column;
-  }
-  .case-container {
-    width: var(--text-max);
+    align-items: stretch;     
+    width: 100%;             
+    max-width: var(--text-max);
     height: auto;
   }
-}
-@media (max-width: 680px){
-  .case-container {
+
+  .case-col-text,
+  .case-col-image {
+    flex: none;               
     width: 100%;
-    height: auto;
+    min-width: 0;
+  }
+
+  .case-col-text {
+    margin: 0;                
   }
 }
 @media (max-width: 1200px) {
@@ -930,28 +969,6 @@ body, a, button, .navbar, .navbar * {
     margin: 0 auto;
   }
 }
-
-@media (max-width: 900px) {
-  .hero-section {
-    flex-direction: column;
-    text-align: center;
-  }
-  .intro-text {
-    margin: 0 auto;
-    text-align: center;
-  }
-  .crate-container {
-    height: auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .record-box {
-    margin-left: 0;
-  }
-  .playground-grid { column-count: 3; }
-}
-
 @media (max-width: 650px) {
   .project-grid-container { grid-template-columns: 1fr; }
 }
